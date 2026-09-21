@@ -31,7 +31,10 @@
   .side{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);
         border:1px solid var(--line);border-radius:18px;padding:30px 26px;position:sticky;top:24px}
   @media(max-width:860px){.side{position:static}}
-  .name{font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.5px}
+  .avatar{width:132px;height:132px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 18px;
+          border:3px solid var(--orange);box-shadow:0 10px 30px rgba(0,0,0,.4),0 0 0 6px rgba(245,166,35,.12)}
+  .name{font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.5px;text-align:center}
+  .role{text-align:center}
   .name span{color:var(--orange)}
   .role{margin-top:8px;font-weight:600;letter-spacing:2px;font-size:12px;
         text-transform:uppercase;color:var(--orange-soft)}
@@ -91,6 +94,7 @@
   <div class="grid">
     <!-- SIDEBAR -->
     <aside class="side">
+      <img class="avatar" src="avatar.jpg" alt="Trinh Ngoc Thuong" />
       <div class="name">TRINH NGOC <span>THUONG</span></div>
       <div class="role">Backend Engineer</div>
 
