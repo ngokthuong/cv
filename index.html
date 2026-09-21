@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trinh Ngoc Thuong — Backend Engineer</title>
+<meta name="description" content="Trinh Ngoc Thuong — Backend-focused Fullstack Engineer. Node.js, NestJS, Python, Go, Web3. Nearly 2 years building production systems across social media, Web3, and real-time platforms." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#1d2b3a; --navy-2:#233648; --ink:#0f1a26;
+    --orange:#f5a623; --orange-soft:#ffb845;
+    --text:#e8edf3; --muted:#9db0c4; --line:rgba(255,255,255,.09);
+    --card:#182634;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,sans-serif;
+    background:radial-gradient(1200px 600px at 15% -10%,#26384b 0%,var(--ink) 55%);
+    color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 20px 80px}
+  .grid{display:grid;grid-template-columns:320px 1fr;gap:26px;align-items:start}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+
+  /* Sidebar */
+  .side{background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);
+        border:1px solid var(--line);border-radius:18px;padding:30px 26px;position:sticky;top:24px}
+  @media(max-width:860px){.side{position:static}}
+  .name{font-size:30px;font-weight:800;line-height:1.15;letter-spacing:-.5px}
+  .name span{color:var(--orange)}
+  .role{margin-top:8px;font-weight:600;letter-spacing:2px;font-size:12px;
+        text-transform:uppercase;color:var(--orange-soft)}
+  .side h3{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);
+           margin:26px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .contact li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted);margin:9px 0;word-break:break-word}
+  .contact li b{color:var(--text);font-weight:500}
+  .contact a:hover{color:var(--orange-soft)}
+  .ic{color:var(--orange);flex:0 0 18px;text-align:center}
+  .skill-group{margin:11px 0}
+  .skill-group .lbl{font-size:13px;font-weight:700;color:var(--text)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .chip{font-size:11.5px;background:#22354a;border:1px solid var(--line);color:#cdd9e6;
+        padding:3px 9px;border-radius:20px;font-weight:500}
+  .edu b{color:var(--text)} .edu{font-size:14px;color:var(--muted)}
+  .gpa{display:inline-block;margin-top:6px;font-family:'JetBrains Mono',monospace;
+       font-size:12px;color:var(--orange-soft)}
+
+  /* Main */
+  .main{display:flex;flex-direction:column;gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px}
+  .card > h2{font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);
+             display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .card > h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  .about{font-size:15px;color:#d4deea}
+  .about p+p{margin-top:10px}
+
+  .job{position:relative;padding-left:22px;padding-bottom:22px}
+  .job:not(:last-child){border-left:2px solid var(--line);margin-left:5px}
+  .job::before{content:"";position:absolute;left:-6px;top:5px;width:11px;height:11px;border-radius:50%;
+               background:var(--orange);box-shadow:0 0 0 4px rgba(245,166,35,.15)}
+  .job.last{border-left:2px solid transparent}
+  .job h3{font-size:17px;font-weight:700}
+  .meta{font-size:13px;color:var(--orange-soft);font-weight:600;margin:2px 0 2px}
+  .company-desc{font-size:13px;color:var(--muted);font-style:italic;margin-bottom:8px}
+  .job ul{list-style:none;margin:8px 0 0}
+  .job li{position:relative;padding-left:16px;font-size:14px;color:#cfdae6;margin:6px 0}
+  .job li::before{content:"▸";position:absolute;left:0;color:var(--orange);font-size:12px}
+  .tech{margin-top:10px;font-size:12.5px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+  .tech b{color:#8fa6bd;font-weight:500}
+
+  .highlights li{position:relative;padding-left:18px;font-size:14.5px;color:#d4deea;margin:9px 0}
+  .highlights li::before{content:"◆";position:absolute;left:0;color:var(--orange);font-size:11px;top:3px}
+  .highlights b{color:#fff}
+
+  .foot{text-align:center;color:var(--muted);font-size:12.5px;margin-top:34px}
+  .foot a{color:var(--orange-soft)}
+  .print-btn{position:fixed;right:18px;bottom:18px;background:var(--orange);color:#1a1a1a;
+    font-weight:700;font-size:13px;border:none;border-radius:30px;padding:11px 18px;cursor:pointer;
+    box-shadow:0 8px 24px rgba(245,166,35,.35)}
+  .print-btn:hover{background:var(--orange-soft)}
+  @media print{.print-btn{display:none};body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="grid">
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <div class="name">TRINH NGOC <span>THUONG</span></div>
+      <div class="role">Backend Engineer</div>
+
+      <h3>Contact</h3>
+      <ul class="contact">
+        <li><span class="ic">☎</span><a href="tel:+84329040846">+84 329 040 846</a></li>
+        <li><span class="ic">✉</span><a href="mailto:trinhngocthuong17523@gmail.com">trinhngocthuong17523@gmail.com</a></li>
+        <li><span class="ic">⌥</span><a href="https://github.com/ngok-thuong" target="_blank" rel="noopener">github.com/ngok-thuong</a></li>
+        <li><span class="ic">in</span><a href="https://linkedin.com/in/ngocthuong/" target="_blank" rel="noopener">linkedin.com/in/ngocthuong</a></li>
+        <li><span class="ic">◈</span><a href="https://surl.li/zuvokf" target="_blank" rel="noopener">Portfolio</a></li>
+      </ul>
+
+      <h3>Core Skills</h3>
+      <div class="skill-group"><div class="lbl">Backend</div>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">Express</span><span class="chip">Python</span><span class="chip">Go</span></div></div>
+      <div class="skill-group"><div class="lbl">Database</div>
+        <div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQLite</span></div></div>
+      <div class="skill-group"><div class="lbl">Data &amp; Messaging</div>
+        <div class="chips"><span class="chip">Redis</span><span class="chip">RabbitMQ</span><span class="chip">WebSocket</span><span class="chip">Indexing</span><span class="chip">Query Opt</span></div></div>
+      <div class="skill-group"><div class="lbl">Architecture</div>
+        <div class="chips"><span class="chip">Microservices</span><span class="chip">DDD</span><span class="chip">BFF</span><span class="chip">MVC</span></div></div>
+      <div class="skill-group"><div class="lbl">Frontend</div>
+        <div class="chips"><span class="chip">React</span><span class="chip">Vue.js</span><span class="chip">Next.js</span><span class="chip">Vite</span><span class="chip">Tailwind</span></div></div>
+      <div class="skill-group"><div class="lbl">DevOps</div>
+        <div class="chips"><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">AWS EC2/S3</span><span class="chip">MinIO</span><span class="chip">OpenObserve</span></div></div>
+      <div class="skill-group"><div class="lbl">Web3 &amp; Testing</div>
+        <div class="chips"><span class="chip">Solidity</span><span class="chip">EVM</span><span class="chip">Wagmi</span><span class="chip">Jest</span></div></div>
+
+      <h3>Education</h3>
+      <div class="edu"><b>University of Technology and Education (UTE)</b><br>
+        B.Sc. Information Technology · 2021–2025<br>
+        <span class="gpa">GPA 3.45 / 4.00</span></div>
+
+      <h3>Language</h3>
+      <div class="edu"><b>English</b> — Upper-intermediate<br>
+        Daily communication in an international team; strong reading &amp; writing.</div>
+
+      <h3>Certification</h3>
+      <div class="edu"><b>Claude Code in Action</b> — Anthropic<br>Feb 2026</div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <section class="card">
+        <h2>About Me</h2>
+        <div class="about">
+          <p>Backend-focused Fullstack Engineer with nearly 2 years of experience building and maintaining production web applications across social media, Web3, and real-time systems.</p>
+          <p>Experienced in backend APIs, database-driven systems, authentication &amp; authorization, caching, real-time features, messaging, and third-party integrations. Comfortable owning features from technical design through deployment, debugging, and production maintenance.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Work Experience</h2>
+
+        <div class="job">
+          <h3>Doi Xanh Media</h3>
+          <div class="meta">May 2026 – Present · Fullstack Engineer / Project Owner</div>
+          <div class="company-desc">Media technology company developing AI-powered content creation, video automation, and digital marketing solutions.</div>
+          <ul>
+            <li>Owned backend APIs and core features for a centralized social media management platform supporting YouTube, Facebook, TikTok, and X.</li>
+            <li>Delivered content publishing, channel management, and automated seeding workflows across backend and frontend.</li>
+            <li>Worked with Redis, MinIO, RabbitMQ, and OpenObserve for data, messaging, storage, and observability workflows.</li>
+            <li>Participated in AI/agent integrations, deployment, debugging, monitoring, and production maintenance.</li>
+          </ul>
+          <div class="tech"><b>Tech:</b> Python, Vue.js, Redis, MinIO, RabbitMQ, OpenObserve, Docker, AWS</div>
+        </div>
+
+        <div class="job">
+          <h3>T2WEB Corporation</h3>
+          <div class="meta">Dec 2024 – May 2026 · Fullstack Engineer</div>
+          <div class="company-desc">Web3 startup focused on DeFi and gaming products.</div>
+          <ul>
+            <li>Built and maintained backend APIs and core flows covering subscriptions, user management, authentication, authorization, and transaction-related features.</li>
+            <li>Built a real-time ranking system for ~3,000 users using Redis, reducing leaderboard response latency from seconds to milliseconds.</li>
+            <li>Optimized database-heavy features involving 1M+ records through indexing, query optimization, and data-access improvements.</li>
+            <li>Implemented JWT/RBAC and wallet-based authentication flows; integrated third-party APIs and Telegram webhooks.</li>
+            <li>Audited and tested smart contracts with &gt;90% test coverage and contributed to identifying security risks before deployment.</li>
+            <li>Owned features from technical design and implementation through deployment, debugging, monitoring, and production maintenance.</li>
+          </ul>
+          <div class="tech"><b>Tech:</b> Node.js, NestJS, Next.js, Vue.js, MySQL, PostgreSQL, MongoDB, Redis, Solidity, Wagmi, AWS, Docker</div>
+        </div>
+
+        <div class="job last">
+          <h3>Wisdom Engineering &amp; Business Solutions</h3>
+          <div class="meta">Sep 2024 – Nov 2024 · Fullstack Engineer (Fresher)</div>
+          <div class="company-desc">Startup-style software development environment focused on open-source solutions.</div>
+          <ul>
+            <li>Designed database structures for an e-commerce platform and developed fullstack features using standardized architecture.</li>
+            <li>Implemented WebSocket-based real-time notifications.</li>
+          </ul>
+          <div class="tech"><b>Tech:</b> Spring Boot, React, MySQL, WebSocket</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Engineering Highlights</h2>
+        <ul class="highlights">
+          <li><b>Performance:</b> Redis ranking for ~3,000 users; database workloads with 1M+ records.</li>
+          <li><b>Reliability:</b> production monitoring, logging, deployment, debugging, and maintenance.</li>
+          <li><b>Architecture:</b> BFF, DDD, microservices, feature-based design, REST APIs and WebSocket.</li>
+          <li><b>Security:</b> JWT/RBAC, wallet authentication, smart-contract testing.</li>
+        </ul>
+      </section>
+
+      <div class="foot">© 2026 Trinh Ngoc Thuong · Backend Engineer · Built as a live web CV</div>
+    </main>
+  </div>
+</div>
+<button class="print-btn" onclick="window.print()">⤓ Save as PDF</button>
+</body>
+</html>
